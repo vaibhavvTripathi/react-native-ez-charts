@@ -1,309 +1,380 @@
-# React Native Component Library Template
+# ```react-native-ez-charts```
 
+A lightweight and customizable React Native chart library for creating stunning visualizations. This library supports Bar Charts, Line Charts, and Pie Charts with various customization options.
 
-## Introduction
+## Installation
 
-Welcome to the React Native Component Library Template! This template is designed to provide developers with a fast and efficient starting point for building their own React Native component libraries. It includes a set of pre-designed components that are easily customizable to fit your project's unique requirements.
+Install the package using npm:
+
+```bash
+npm install react-native-ez-charts
+```
 
 ## Features
 
-* Pre-built React Native components ready for customization.
-* Integrated with @shopify/restyle for theming and styling.
-* Storybook integration for component documentation and testing.
-* TypeScript support for type-safe coding.
-* Essential development scripts for linting, testing, and building.
-
-## Getting Started
-
-1. Clone the Repository
-
-```
-git clone [repository-url]
-cd [repository-directory]
-
-```
-2. Install Dependencies
-
-```
-yarn install
-```
-or 
-```
-npm install
-```
-3. Run Storybook (Optional)
-
-To view and test components in Storybook:
-
-```
-yarn storybook
-```
-or
-```
-npm run storybook
-```
-## Customizing Components
-
-* All components are located in the src/components directory.
-* Use the theme.ts file in the src directory to customize the theme and styles.
-* Add or modify components as needed for your specific use case.
-
-## Building Your Library
-
-After making changes, build your component library with:
-
-```
-yarn build
-```
-or
-```
-npm run build
-```
-
-This will compile your TypeScript and JavaScript files to the lib directory.
-
-## Contributing
-Contributions to improve this template are welcome. Please ensure to follow the contribution guidelines when submitting pull requests.
-# BarChart Component Documentation
-
-The `BarChart` component is a reusable React Native component for rendering customizable bar charts. It supports both numerical and categorical axes, animations, and visual customization.
+- **Bar Charts**: Simple and Multi-Bar Charts
+- **Line Charts**: Simple and Stacked Line Charts
+- **Pie Charts**: Inscribed and Offset Pie Charts
+- Customizable animations, gradients, tooltips, and more.
 
 ---
 
-## **Props**
+## Usage Examples
 
-| **Prop**                  | **Type**                                                                 | **Description**                                                                                                              | **Default**           |
-|---------------------------|--------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|-----------------------|
-| `numericalAxes`           | `NumericalAxisType[]`                                                   | Array of numerical axes data. Each axis contains an array of numbers and a stroke color for rendering.                       | Required              |
-| `catergoricalAxis`        | `Array<string>`                                                         | Array of labels for the categorical axis.                                                                                    | Required              |
-| `barWidth`                | `number`                                                               | Width of each bar in the chart.                                                                                              | Required              |
-| `barGap`                  | `number`                                                               | Gap between bars in the chart.                                                                                               | Required              |
-| `chartHeight`             | `number`                                                               | Height of the chart in pixels.                                                                                               | `300`                 |
-| `minChartWidth`           | `number`                                                               | Minimum width of the chart in pixels.                                                                                        | `0`                   |
-| `categoricalAxisHeight`   | `number`                                                               | Height of the categorical axis.                                                                                              | Undefined             |
-| `categoricalLabelTilt`    | `TiltAngle`                                                            | Angle at which categorical labels are tilted.                                                                                | Undefined             |
-| `dashedLineWidth`         | `number`                                                               | Width of dashed lines for horizontal divisions.                                                                              | Undefined             |
-| `dashedLineGap`           | `number`                                                               | Gap between dashed lines for horizontal divisions.                                                                           | Undefined             |
-| `dashedLineColor`         | `string`                                                               | Color of dashed lines for horizontal divisions.                                                                              | Undefined             |
-| `categoricalLabelColor`   | `string`                                                               | Color of categorical axis labels.                                                                                           | Undefined             |
-| `numericalLabelColor`     | `string`                                                               | Color of numerical axis labels.                                                                                             | Undefined             |
-| `categoricalLabelFontSize`| `number`                                                               | Font size of categorical axis labels.                                                                                       | Undefined             |
-| `numericalLabelFontSize`  | `number`                                                               | Font size of numerical axis labels.                                                                                         | Undefined             |
-| `variant`                 | `'gradient' | 'default'`                                                | Visual style of the bars.                                                                                                   | Undefined             |
-| `animationType`           | `AnimationType`                                                        | Type of animation applied to the bars.                                                                                      | Undefined             |
-| `friction`                | `number`                                                               | Friction value for animations.                                                                                              | Undefined             |
-| `tension`                 | `number`                                                               | Tension value for animations.                                                                                               | Undefined             |
-| `duration`                | `number`                                                               | Duration of the animations in milliseconds.                                                                                 | Undefined             |
-| `easing`                  | `(value: number) => number`                                            | Easing function for animations.                                                                                             | Undefined             |
-| `endOpacity`              | `number`                                                               | End opacity of animated bars.                                                                                               | Undefined             |
-
----
-
-## **NumericalAxisType Interface**
-
-| **Property**   | **Type**        | **Description**                          |
-|----------------|-----------------|------------------------------------------|
-| `data`         | `Array<number>` | Array of numerical data for the axis.    |
-| `strokeColor`  | `string`        | Color of the axis stroke.                |
-
----
-
-## **Example Usage**
+### Simple Bar Chart
 
 ```tsx
 import React from 'react';
-import BarChart from './BarChart';
+import {BarChart} from 'react-native-ez-charts';
 
-const Example = () => {
-  return (
-    <BarChart
-      numericalAxes={[{ data: [10, 20, 30], strokeColor: 'blue' }]}
-      catergoricalAxis={['Jan', 'Feb', 'Mar']}
-      barWidth={20}
-      barGap={10}
-      chartHeight={300}
-      categoricalLabelColor="black"
-      numericalLabelColor="gray"
-    />
-  );
-};
+const SimpleBarChart = () => (
+  <BarChart
+    catergoricalAxis={['Jan', 'Feb', 'March', 'April', 'May']}
+    numericalAxes={[
+      {
+        data: [100, 233, 322, 122, 34],
+        strokeColor: 'blue',
+      },
+    ]}
+    barWidth={100}
+    chartHeight={500}
+    barGap={20}
+    categoricalAxisHeight={50}
+    dashedLineGap={20}
+    dashedLineWidth={20}
+    categoricalLabelTilt={0}
+    variant="gradient"
+    endOpacity={0.5}
+    animationType="timing"
+    duration={500}
+  />
+);
 
-export default Example;
+export default SimpleBarChart;
 ```
 
----
-
-## **Customization Options**
-The `BarChart` component offers several properties for extensive customization, including:
-- Animation control through `animationType`, `friction`, `tension`, `duration`, and `easing`.
-- Styling options for axis labels, dashed lines, and bar appearance.
-- Dynamic sizing with `chartHeight` and `minChartWidth` properties.
+![Alt text](./assets/simplebar.png)
 
 ---
 
-## **Dependencies**
-This component relies on:
-- `react-native-svg` for rendering graphical elements.
-- Custom components like `NumericalAxis`, `HorizontalDivisions`, and `DataBars` for modular functionality.
-
----
-
-## **Notes**
-- Ensure numerical and categorical axes data align for proper chart rendering.
-- The `animationType` property should correspond to a valid animation type defined in `useAnimatedBar`.
-
----
-
-## **To Do**
-- Add more customization options for tooltips and interactive features.
-- Improve accessibility by adding ARIA roles and descriptions.
-
-# LineChart Component
-
-The `LineChart` component is a customizable React Native chart for visualizing numerical data against a categorical axis.
-
-## Props
-
-| Prop Name               | Type                                         | Default Value             | Description                                                                                       |
-|-------------------------|----------------------------------------------|---------------------------|---------------------------------------------------------------------------------------------------|
-| `catergoricalAxis`      | `Array<string>`                             | **Required**             | Labels for the categorical axis.                                                                |
-| `numericalAxes`         | `NumericalAxisType[]`                       | **Required**             | Data for numerical axes, including values and line properties.                                   |
-| `chartHeight`           | `number`                                    | `300`                     | Height of the chart area.                                                                        |
-| `minChartWidth`         | `number`                                    | `0`                       | Minimum width of the chart.                                                                     |
-| `modifyToolTipLabel`    | `(x: string, y: number) => string`          | `(x, y) => \`(${x},${y})\``| Callback to modify tooltip labels.                                                              |
-| `xUnit`                 | `number`                                    | `70`                      | Horizontal spacing between data points.                                                         |
-| `showToolTip`           | `boolean`                                   | `false`                   | Whether to display tooltips.                                                                    |
-| `categoricalAxisHeight` | `number`                                    | `undefined`               | Height of the categorical axis.                                                                 |
-| `categoricalLabelTilt`  | `TiltAngle`                                 | `undefined`               | Tilt angle for categorical axis labels.                                                         |
-| `variant`               | `'area' | 'blank'`                          | `'blank'`                | Determines the type of chart, either area or blank line.                                         |
-| `dashedLineWidth`       | `number`                                    | `undefined`               | Width of dashed lines for gridlines.                                                            |
-| `dashedLineGap`         | `number`                                    | `undefined`               | Gap between dashes for gridlines.                                                               |
-| `dashedLineColor`       | `string`                                    | `undefined`               | Color of dashed gridlines.                                                                      |
-| `categoricalLabelColor` | `string`                                    | `undefined`               | Color of the categorical axis labels.                                                           |
-| `numericalLabelColor`   | `string`                                    | `undefined`               | Color of the numerical axis labels.                                                             |
-| `categoricalLabelFontSize` | `number`                                 | `undefined`               | Font size for categorical axis labels.                                                          |
-| `numericalLabelFontSize` | `number`                                  | `undefined`               | Font size for numerical axis labels.                                                            |
-| `toolTipColor`          | `string`                                    | `undefined`               | Color of the tooltips.                                                                          |
-
-## NumericalAxisType
-
-| Property      | Type         | Description                                                                 |
-|---------------|--------------|-----------------------------------------------------------------------------|
-| `data`        | `Array<number>` | Array of numerical data points.                                           |
-| `strokeColor` | `string`      | Color of the line representing the data.                                  |
-| `strokeWidth` | `number`      | Width of the line representing the data.                                  |
-
-## Components Used
-
-- **`NumericalAxis`**: Displays the numerical scale along the left side of the chart.
-- **`DataLine`**: Renders the data lines or areas for numerical values.
-- **`Labels`**: Displays tooltips for data points.
-- **`CategoricalAxis`**: Renders the categorical labels below the chart.
-- **`HorizontalDivisions`**: Adds horizontal gridlines to the chart.
-
-## Example Usage
+### Multi Bar Chart
 
 ```tsx
 import React from 'react';
-import LineChart, { NumericalAxisType } from './LineChart';
+import {BarChart} from 'react-native-ez-charts';
 
-const numericalAxes: NumericalAxisType[] = [
-  {
-    data: [10, 20, 30, 40, 50],
-    strokeColor: 'blue',
-    strokeWidth: 2,
-  },
-  {
-    data: [15, 25, 35, 45, 55],
-    strokeColor: 'red',
-    strokeWidth: 2,
-  },
-];
+const MultiBarChart = () => (
+  <BarChart
+    catergoricalAxis={['Jan', 'Feb', 'March', 'April']}
+    numericalAxes={[
+      {
+        data: [100, 233, 322, 122],
+        strokeColor: 'orange',
+      },
+      {
+        data: [70, 263, 222, 122],
+        strokeColor: 'pink',
+      },
+      {
+        data: [170, 223, 212, 212],
+        strokeColor: 'grey',
+      },
+    ]}
+    barWidth={100}
+    chartHeight={500}
+    barGap={20}
+    categoricalAxisHeight={50}
+    dashedLineGap={20}
+    dashedLineWidth={20}
+    categoricalLabelTilt={0}
+    variant="gradient"
+    endOpacity={0.5}
+    animationType="timing"
+    duration={500}
+  />
+);
 
-const categoricalAxis = ['Jan', 'Feb', 'Mar', 'Apr', 'May'];
+export default MultiBarChart;
+```
 
-const App = () => (
+## ![Alt text](./assets/bargroup.png)
+
+### Simple Line Chart
+
+```tsx
+import React from 'react';
+import {LineChart} from 'react-native-ez-charts';
+
+const SimpleLineChart = () => (
   <LineChart
-    numericalAxes={numericalAxes}
-    catergoricalAxis={categoricalAxis}
+    catergoricalAxis={['Jan', 'Feb', 'March', 'April']}
+    numericalAxes={[
+      {
+        data: [100, 133, 122, 122],
+        strokeColor: 'red',
+        strokeWidth: 2,
+      },
+    ]}
+    xUnit={100}
     chartHeight={300}
-    xUnit={60}
-    showToolTip={true}
+    categoricalAxisHeight={50}
+    dashedLineGap={20}
+    dashedLineWidth={20}
+    categoricalLabelTilt={0}
     variant="area"
+    showToolTip={true}
+    toolTipColor="black"
   />
 );
 
-export default App;
+export default SimpleLineChart;
 ```
 
-## Notes
+## ![Alt text](./assets/line.png)
 
-- Ensure the `catergoricalAxis` array length matches the number of data points in each numerical axis.
-- Customize `modifyToolTipLabel` for tailored tooltip content.
-
-Feel free to modify or enhance the component based on your requirements!
-
-# PieChart Component
-
-The `PieChart` component is a reusable and customizable React Native component designed to visualize data as a pie chart. It supports gradients, labels, and two variants for label placement.
-
-## Props
-
-| Prop Name      | Type                                     | Default Value | Description                                                                                                   |
-|----------------|------------------------------------------|---------------|---------------------------------------------------------------------------------------------------------------|
-| `data`         | `Slice[]`                               | **Required**  | Array of data slices to render. Each slice includes a value, color, and optional label.                       |
-| `variant`      | `'inscribed' \| 'offset'`               | `'inscribed'` | Determines label placement. `inscribed` places labels inside the chart, while `offset` places them outside.   |
-| `size`         | `number`                                | **Required**  | Diameter of the pie chart.                                                                                   |
-| `labelFontSize`| `number`                                | `20`          | Font size for labels.                                                                                        |
-| `gradient`     | `boolean`                               | `true`        | Whether to apply a gradient fill to slices.                                                                  |
-| `endOpacity`   | `number`                                | `0.4`         | End opacity for gradient fill.                                                                               |
-
-## Slice Interface
-
-| Property   | Type                  | Description                                         |
-|------------|-----------------------|-----------------------------------------------------|
-| `value`    | `number`              | Value of the slice, determining its size in the chart. |
-| `color`    | `string`              | Color of the slice.                                |
-| `label`    | `{value: string; color: string}` | Optional label text and color.                  |
-
-## Features
-
-- **Gradient Support**: Allows applying gradients to slices with customizable end opacity.
-- **Label Placement Variants**: 
-  - **`inscribed`**: Labels are displayed inside the pie chart.
-  - **`offset`**: Labels are placed outside the chart, with connecting lines.
-- **Customizable Dimensions**: Chart size and label font size can be adjusted.
-
-## Example Usage
+### Stacked Line Chart
 
 ```tsx
 import React from 'react';
-import { PieChart, Slice } from './PieChart';
+import {LineChart} from 'react-native-ez-charts';
 
-const data: Slice[] = [
-  { value: 40, color: 'red', label: { value: '40%', color: 'white' } },
-  { value: 30, color: 'blue', label: { value: '30%', color: 'white' } },
-  { value: 20, color: 'green', label: { value: '20%', color: 'white' } },
-  { value: 10, color: 'yellow', label: { value: '10%', color: 'black' } },
-];
-
-const App = () => (
-  <PieChart 
-    data={data} 
-    size={200} 
-    variant="offset" 
-    gradient={true} 
-    endOpacity={0.3} 
+const StackedLineChart = () => (
+  <LineChart
+    catergoricalAxis={['Jan', 'Feb', 'March', 'April', 'May']}
+    numericalAxes={[
+      {
+        data: [100, 133, 122, 122, 121],
+        strokeColor: 'pink',
+        strokeWidth: 2,
+      },
+      {
+        data: [90, 73, 82, 92, 90],
+        strokeColor: 'red',
+        strokeWidth: 2,
+      },
+      {
+        data: [20, 43, 42, 42, 69],
+        strokeColor: 'grey',
+        strokeWidth: 2,
+      },
+    ]}
+    xUnit={100}
+    chartHeight={500}
+    categoricalAxisHeight={50}
+    dashedLineGap={20}
+    dashedLineWidth={20}
+    categoricalLabelTilt={0}
+    variant="area"
+    showToolTip={true}
+    toolTipColor="black"
   />
 );
 
-export default App;
+export default StackedLineChart;
 ```
 
-## Notes
+## ![Alt text](./assets/stackedline.png)
 
-- Ensure that the `value` properties of all slices sum up to the desired total for accurate representation.
-- Adjust the `endOpacity` to control the transparency effect in the gradient.
-- When using the `offset` variant, make sure there is enough space around the chart for labels and lines.
+### Inscribed Pie Chart
 
-Feel free to modify or enhance this component based on your specific use case!
+```tsx
+import React from 'react';
+import {PieChart} from 'react-native-ez-charts';
+
+const InscribedPieChart = () => (
+  <PieChart
+    size={180}
+    data={[
+      {
+        value: 30,
+        color: '#FF5733',
+        label: {value: 'Mango', color: 'black'},
+      },
+      {
+        value: 20,
+        color: '#33FF57',
+        label: {value: 'Orange', color: 'black'},
+      },
+      {value: 50, color: '#3357FF', label: {value: 'Peas', color: 'black'}},
+      {value: 10, color: 'gray', label: {value: 'Avocado', color: 'black'}},
+      {
+        value: 20,
+        color: '#33FF57',
+        label: {value: 'Banana', color: 'black'},
+      },
+    ]}
+    variant="inscribed"
+    labelFontSize={15}
+  />
+);
+
+export default InscribedPieChart;
+```
+
+## ![Alt text](./assets/inspie.png)
+
+### Offset Pie Chart
+
+```tsx
+import React from 'react';
+import {PieChart} from 'react-native-ez-charts';
+
+const OffsetPieChart = () => (
+  <PieChart
+    size={250}
+    data={[
+      {
+        value: 30,
+        color: '#FF5733',
+        label: {value: 'Mango', color: 'black'},
+      },
+      {
+        value: 20,
+        color: '#33FF57',
+        label: {value: 'Orange', color: 'black'},
+      },
+      {value: 50, color: '#3357FF', label: {value: 'Peas', color: 'black'}},
+      {value: 10, color: 'gray', label: {value: 'Avocado', color: 'black'}},
+      {
+        value: 20,
+        color: '#33FF57',
+        label: {value: 'Banana', color: 'black'},
+      },
+    ]}
+    variant="offset"
+    labelFontSize={15}
+  />
+);
+
+export default OffsetPieChart;
+```
+
+![Alt text](./assets/offsetpie.png)
+
+# BarChart Props
+
+The `BarChart` component allows you to render a customizable bar chart. Below is a table describing all the available props:
+
+| Prop Name                  | Type                        | Required | Default Value | Description                                                                     |
+| -------------------------- | --------------------------- | -------- | ------------- | ------------------------------------------------------------------------------- |
+| `numericalAxes`            | `NumericalAxisType[]`       | Yes      | N/A           | An array of objects defining the data and stroke color for each numerical axis. |
+| `catergoricalAxis`         | `string[]`                  | Yes      | N/A           | An array of strings defining the categorical axis labels.                       |
+| `barWidth`                 | `number`                    | Yes      | N/A           | The width of each bar in the chart.                                             |
+| `barGap`                   | `number`                    | Yes      | N/A           | The gap between bars in the chart.                                              |
+| `chartHeight`              | `number`                    | No       | N/A           | The height of the chart.                                                        |
+| `minChartWidth`            | `number`                    | No       | N/A           | The minimum width of the chart.                                                 |
+| `categoricalAxisHeight`    | `number`                    | No       | N/A           | The height of the categorical axis.                                             |
+| `categoricalLabelTilt`     | `TiltAngle`                 | No       | N/A           | The tilt angle of the categorical labels.                                       |
+| `dashedLineWidth`          | `number`                    | No       | N/A           | The width of dashed lines in the chart.                                         |
+| `dashedLineGap`            | `number`                    | No       | N/A           | The gap between dashed lines in the chart.                                      |
+| `dashedLineColor`          | `string`                    | No       | N/A           | The color of dashed lines in the chart.                                         |
+| `categoricalLabelColor`    | `string`                    | No       | N/A           | The color of the categorical labels.                                            |
+| `numericalLabelColor`      | `string`                    | No       | N/A           | The color of the numerical labels.                                              |
+| `categoricalLabelFontSize` | `number`                    | No       | N/A           | The font size of the categorical labels.                                        |
+| `numericalLabelFontSize`   | `number`                    | No       | N/A           | The font size of the numerical labels.                                          |
+| `variant`                  | `'gradient' \| 'default'`   | No       | `'default'`   | The visual variant of the chart.                                                |
+| `animationType`            | `AnimationType`             | No       | N/A           | The type of animation applied to the chart.                                     |
+| `friction`                 | `number`                    | No       | N/A           | The friction value for the animation (if applicable).                           |
+| `tension`                  | `number`                    | No       | N/A           | The tension value for the animation (if applicable).                            |
+| `duration`                 | `number`                    | No       | N/A           | The duration of the animation in milliseconds.                                  |
+| `easing`                   | `(value: number) => number` | No       | N/A           | A custom easing function for the animation.                                     |
+| `endOpacity`               | `number`                    | No       | N/A           | The ending opacity for the gradient variant of the chart.                       |
+
+### `NumericalAxisType` Interface
+
+The `NumericalAxisType` defines the structure of the `numericalAxes` prop:
+
+```typescript
+export interface NumericalAxisType {
+  data: Array<number>;
+  strokeColor: string;
+}
+```
+---
+# LineChart Props
+
+Here is a table summarizing the properties and types for the `LineChart` and `CategoricalAxis` components:
+
+### `LineChart` Props
+
+| **Prop**                  | **Type**                                     | **Description**                                                                                                                                 |
+|---------------------------|----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| `catergoricalAxis`        | `Array<string>`                              | Labels for the categorical axis.                                                                                                               |
+| `numericalAxes`           | `NumericalAxisType[]`                        | Array of numerical axis configurations, including data and styles.                                                                             |
+| `chartHeight`             | `number` (optional)                         | Height of the chart.                                                                                                                           |
+| `minChartWidth`           | `number` (optional)                         | Minimum width of the chart.                                                                                                                    |
+| `modifyToolTipLabel`      | `(x: string, y: number) => string` (optional)| Function to modify the tooltip label.                                                                                                          |
+| `xUnit`                   | `number` (optional)                         | Unit spacing for the x-axis.                                                                                                                   |
+| `showToolTip`             | `boolean` (optional)                        | Whether to show tooltips on the chart.                                                                                                         |
+| `categoricalAxisHeight`   | `number` (optional)                         | Height of the categorical axis.                                                                                                                |
+| `categoricalLabelTilt`    | `TiltAngle` (optional)                      | Angle for tilting the categorical labels.                                                                                                      |
+| `dashedLineWidth`         | `number` (optional)                         | Width of dashed grid lines.                                                                                                                    |
+| `dashedLineGap`           | `number` (optional)                         | Gap between dashed grid lines.                                                                                                                 |
+| `dashedLineColor`         | `string` (optional)                         | Color of dashed grid lines.                                                                                                                    |
+| `variant`                 | `'area' | 'blank'` (optional)               | Style variant of the chart.                                                                                                                    |
+| `categoricalLabelColor`   | `string` (optional)                         | Color of the categorical axis labels.                                                                                                          |
+| `numericalLabelColor`     | `string` (optional)                         | Color of the numerical axis labels.                                                                                                            |
+| `categoricalLabelFontSize`| `number` (optional)                         | Font size for categorical labels.                                                                                                              |
+| `numericalLabelFontSize`  | `number` (optional)                         | Font size for numerical labels.                                                                                                                |
+| `toolTipColor`            | `string` (optional)                         | Color of the tooltip.                                                                                                                          |
+
+### `NumericalAxisType`
+
+| **Property**  | **Type**          | **Description**                              |
+|---------------|-------------------|----------------------------------------------|
+| `data`        | `Array<number>`   | Data points for the numerical axis.          |
+| `strokeColor` | `string`          | Color of the line representing the data.     |
+| `strokeWidth` | `number`          | Width of the line representing the data.     |
+
+---
+
+### `CategoricalAxis` Props
+
+| **Prop**        | **Type**            | **Description**                                                  |
+|-----------------|---------------------|------------------------------------------------------------------|
+| `categoricalAxis`| `Array<string>`    | Labels for the categorical axis.                                |
+| `xUnit`         | `number`           | Unit spacing for the categorical axis.                          |
+| `height`        | `number` (optional)| Height of the categorical axis.                                 |
+| `tiltAngle`     | `TiltAngle` (optional)| Angle to tilt the labels for better readability.               |
+| `labelColor`    | `string` (optional)| Color of the categorical labels.                                |
+| `fontSize`      | `number` (optional)| Font size of the categorical labels.                            |
+
+---
+
+### `TiltAngle`
+
+| **Value** | **Description**           |
+|-----------|---------------------------|
+| `0`       | No tilt (horizontal).     |
+| `5-90`    | Angle in degrees to tilt labels for readability. | 
+
+
+
+---
+
+# PieChart Props
+
+| **Prop**         | **Type**               | **Description**                                                                                              |
+|------------------|------------------------|--------------------------------------------------------------------------------------------------------------|
+| `data`           | `Slice[]`             | Array of slices representing the pie chart. Each slice contains `value`, `color`, and optionally a `label`. |
+| `variant`        | `"offset" | "inscribed"` (optional) | Style variant of the pie chart. `offset` places slices with spacing, `inscribed` keeps slices compact.     |
+| `size`           | `number`              | Diameter of the pie chart.                                                                                   |
+| `labelFontSize`  | `number` (optional)   | Font size for the labels inside the pie chart.                                                               |
+| `gradient`       | `boolean` (optional)  | Whether to apply a gradient effect to the chart.                                                             |
+| `endOpacity`     | `number` (optional)   | Opacity at the end of the gradient (if enabled).                                                             |
+
+---
+
+### `Slice` Interface
+
+| **Property** | **Type**              | **Description**                                   |
+|--------------|-----------------------|---------------------------------------------------|
+| `value`      | `number`             | Value of the slice, determines its size proportion in the chart. |
+| `color`      | `string`             | Color of the slice.                               |
+| `label`      | `{ value: string, color: string }` (optional) | Optional label for the slice, with text and color. |
+
+---
+
+## License
+
+This library is licensed under the MIT License.

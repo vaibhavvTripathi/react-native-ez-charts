@@ -1,6 +1,6 @@
 {
-  "name": "react-native-svg-charts-lite",
-  "version": "0.0.7",
+  "name": "react-native-ez-charts",
+  "version": "0.0.3",
   "description": "React Native SVG Charts Lite",
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
