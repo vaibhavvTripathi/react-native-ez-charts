@@ -53,7 +53,7 @@ const SimpleBarChart = () => (
 export default SimpleBarChart;
 ```
 
-![Alt text](./assets/simplebar.png)
+![Alt text](https://raw.githubusercontent.com/vaibhavvTripathi/react-native-ez-charts/refs/heads/main/assets/simplebar.png)
 
 ---
 
@@ -97,7 +97,7 @@ const MultiBarChart = () => (
 export default MultiBarChart;
 ```
 
-## ![Alt text](./assets/bargroup.png)
+## ![Alt text](https://raw.githubusercontent.com/vaibhavvTripathi/react-native-ez-charts/refs/heads/main/assets/bargroup.png)
 
 ### Simple Line Chart
 
@@ -130,7 +130,7 @@ const SimpleLineChart = () => (
 export default SimpleLineChart;
 ```
 
-## ![Alt text](./assets/line.png)
+## ![Alt text](https://raw.githubusercontent.com/vaibhavvTripathi/react-native-ez-charts/refs/heads/main/assets/line.png)
 
 ### Stacked Line Chart
 
@@ -173,7 +173,7 @@ const StackedLineChart = () => (
 export default StackedLineChart;
 ```
 
-## ![Alt text](./assets/stackedline.png)
+## ![Alt text](https://raw.githubusercontent.com/vaibhavvTripathi/react-native-ez-charts/refs/heads/main/assets/stackedline.png)
 
 ### Inscribed Pie Chart
 
@@ -211,7 +211,7 @@ const InscribedPieChart = () => (
 export default InscribedPieChart;
 ```
 
-## ![Alt text](./assets/inspie.png)
+## ![Alt text](https://raw.githubusercontent.com/vaibhavvTripathi/react-native-ez-charts/refs/heads/main/assets/inspie.png)
 
 ### Offset Pie Chart
 
@@ -249,7 +249,7 @@ const OffsetPieChart = () => (
 export default OffsetPieChart;
 ```
 
-![Alt text](./assets/offsetpie.png)
+![Alt text](https://raw.githubusercontent.com/vaibhavvTripathi/react-native-ez-charts/refs/heads/main/assets/offsetpie.png)
 
 # BarChart Props
 
