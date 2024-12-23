@@ -1,7 +1,7 @@
 {
   "name": "react-native-ez-charts",
-  "version": "0.0.4",
-  "description": "A lightweight and customizable React Native chart library for creating stunning visualizations. This library supports Bar Charts, Line Charts, and Pie Charts with various customization options.",
+  "version": "0.0.7",
+  "description": "A lightweight and customizable React Native chart library for creating stunning visualizations based on react-native-svg. This library supports Bar Charts, Line Charts, and Pie Charts with various customization options.",
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
   "react-native": "lib/commonjs/index.js",
@@ -121,5 +121,12 @@
       "lib/",
       "src/"
     ]
-  }
+  },
+  "keywords": [
+    "react-native",
+    "react-native charts library",
+    "charts-library",
+    "scrollable charts library",
+    "react-native"
+  ]
 }

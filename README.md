@@ -7,7 +7,7 @@ A lightweight and customizable React Native chart library for creating stunning 
 Install the package using npm:
 
 ```bash
-npm install react-native-ez-charts
+npm install react-native-svg react-native-ez-charts
 ```
 
 ## Features
