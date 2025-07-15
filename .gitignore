@@ -63,8 +63,6 @@ vendor/
 # Jest
 coverage/
 
-# generated files by bob
-lib/
 
 storybook-static/
 example/package-lock.json
